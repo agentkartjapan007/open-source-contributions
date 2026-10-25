@@ -1,0 +1,3 @@
+date,project,type,link,note
+# Example (remove or replace when adding real rows):
+# 2026-10-01,example-project,PR,https://github.com/example/example-project/pull/1,Hardened CI: pin actions and enable Dependabot
