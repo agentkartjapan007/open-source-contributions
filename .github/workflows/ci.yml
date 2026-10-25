@@ -1,0 +1,35 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check tracker CSV header and column counts
+        run: |
+          python3 - <<'PY'
+          import csv, sys
+          rows = list(csv.reader(open("contributions/tracker.csv")))
+          n = len(rows[0])
+          bad = [i+1 for i, r in enumerate(rows) if r and len(r) != n]
+          if bad:
+              sys.exit(f"Rows with wrong column count: {bad}")
+          print(f"OK: {len(rows)-1} rows, {n} columns")
+          PY
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
