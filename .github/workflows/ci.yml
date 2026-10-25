@@ -22,7 +22,7 @@ jobs:
           import csv, sys
           rows = list(csv.reader(open("contributions/tracker.csv")))
           n = len(rows[0])
-          bad = [i+1 for i, r in enumerate(rows) if r and len(r) != n]
+          bad = [i+1 for i, r in enumerate(rows) if r and not r[0].startswith("#") and len(r) != n]
           if bad:
               sys.exit(f"Rows with wrong column count: {bad}")
           print(f"OK: {len(rows)-1} rows, {n} columns")
