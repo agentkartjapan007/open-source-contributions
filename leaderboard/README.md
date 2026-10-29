@@ -58,3 +58,11 @@
 | 48 | [@portyu9](https://github.com/portyu9) | Ƴunior Ƥortal | [8](https://github.com/advisories?query=credit%3Aportyu9) | 1 | https://resume.yunior-portal.com |  |  |
 | 49 | [@karfau](https://github.com/karfau) | Christian Bewernitz | [8](https://github.com/advisories?query=credit%3Akarfau) | 8 |  |  |  |
 | 50 | [@suavecito585](https://github.com/suavecito585) | Suavecito | [7](https://github.com/advisories?query=credit%3Asuavecito585) | 7 | https://the13thletter.co/ |  |  |
+
+## Additional credits — conference-reported CVEs
+
+Credits from public oss-security disclosures not captured by the GitHub-advisory method above (source: [un]prompted 2026). Not merged into the ranked counts.
+
+| Researcher | Name (GitHub profile) | Credited CVEs | Website | X | LinkedIn | Notes |
+|---|---|---|---|---|---|---|
+| [@tcosmo](https://github.com/tcosmo) | Tristan Stérin | 2 ([CVE-2026-72703](https://www.openwall.com/lists/oss-security/2026/10/26/4), [CVE-2026-72705](https://www.openwall.com/lists/oss-security/2026/10/26/6)) | https://tristan.st |  |  | Rocq guard-checker bugs, fixed in Rocq 9.2.0; tool assist: Claude Opus 4.6. GitHub handle confirmed as reporter of rocq-prover/rocq#21682 and #21683. |
